@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let ul = document.createElement('ul');
+    document.getElementsByTagName('body')[0].append(ul);
+    let li;
+    while (true) {
+        let data;
+        setTimeout( function(){
+            data = prompt('Введите слово');
+        }, 0 );
+
+        if (!data) break;
+        li = document.createElement('li');
+        li.textContent = data;
+        ul.append(li);
+    }
+</script>
+
+
+</body>
+</html>
