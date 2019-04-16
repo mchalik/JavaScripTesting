@@ -28,7 +28,30 @@ function createTree(container, data) {
     container.append();
 }
     let container = document.getElementById('container');
-    createTree(container, data);
+    container.innerHTML = createTree(data);
+
+    function createTree(object) {
+        if (isObjectEmpty(object)) return;
+        let list = '';
+        for (let key in object) {
+            let listItem;
+            listItem = `<li>${key}</li>`;
+
+            let innerList = createTree(object[key]);
+            if (innerList) listItem += innerList;
+            list += listItem;
+        }
+        return `<ul>${list}</ul>`;
+    }
+
+    function  isObjectEmpty(obj) {
+        for (let key in obj) {
+            return false;
+        }
+        return true;
+    }
+
+
 
 </script>
 
