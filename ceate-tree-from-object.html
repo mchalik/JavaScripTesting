@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<div id="container"></div>
+
 <script>
     let data = {
         "Fish": {
@@ -24,14 +26,43 @@
             }
         }
     };
-function createTree(container, data) {
-    container.append();
-}
+
     let container = document.getElementById('container');
-    createTree(container, data);
+
+    container.appendChild(createTree(data));
+
+    function createTree(obj) {
+        if (isObjEmpty(obj)) return;
+
+        let list = document.createElement('ul');
+
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                let listItem = document.createElement('li');
+                listItem.appendChild(document.createTextNode(key));
+
+                let innerList = createTree(obj[key]);
+
+                if (innerList) listItem.appendChild(innerList);
+
+                list.appendChild(listItem);
+            }
+        }
+        return list;
+    }
+
+    function isObjEmpty(obj) {
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 
 </script>
-
 
 </body>
 </html>
