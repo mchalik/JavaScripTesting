@@ -28,34 +28,25 @@
     };
 
     let container = document.getElementById('container');
+    container.innerHTML = createTree(data);
 
-    container.appendChild(createTree(data));
+    function createTree(object) {
+        if (isObjectEmpty(object)) return;
+        let list = '';
+        for (let key in object) {
+            let listItem;
+            listItem = `<li>${key}</li>`;
 
-    function createTree(obj) {
-        if (isObjEmpty(obj)) return;
-
-        let list = document.createElement('ul');
-
-        for (let key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                let listItem = document.createElement('li');
-                listItem.appendChild(document.createTextNode(key));
-
-                let innerList = createTree(obj[key]);
-
-                if (innerList) listItem.appendChild(innerList);
-
-                list.appendChild(listItem);
-            }
+            let innerList = createTree(object[key]);
+            if (innerList) listItem += innerList;
+            list += listItem;
         }
-        return list;
+        return `<ul>${list}</ul>`;
     }
 
-    function isObjEmpty(obj) {
-        for (let i in obj) {
-            if (obj.hasOwnProperty(i)) {
-                return false;
-            }
+    function  isObjectEmpty(obj) {
+        for (let key in obj) {
+            return false;
         }
         return true;
     }
