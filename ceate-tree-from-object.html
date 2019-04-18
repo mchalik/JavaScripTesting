@@ -6,6 +6,7 @@
 </head>
 <body>
 
+<div id="container"></div>
 <script>
     let data = {
         "Fish": {
@@ -24,9 +25,6 @@
             }
         }
     };
-function createTree(container, data) {
-    container.append();
-}
     let container = document.getElementById('container');
     container.innerHTML = createTree(data);
 

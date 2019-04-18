@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>John</td>
+        <td>Smith</td>
+        <td>95</td>
+    </tr>
+    <tr>
+        <td>Maxim</td>
+        <td>Chalik</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>Nikita</td>
+        <td>Utkin</td>
+        <td>24</td>
+    </tr>
+    <tr>
+        <td>Vasiliy</td>
+        <td>Petrovich</td>
+        <td>45</td>
+    </tr>
+    <tr>
+        <td>Daniil</td>
+        <td>Mikhalysh</td>
+        <td>13</td>
+    </tr>
+    <tr>
+        <td>Nikolay</td>
+        <td>Vailyevich</td>
+        <td>28</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+    let tbody = document.querySelector('tbody');
+    let personRows = tbody.querySelectorAll('tr');
+    let names = [];
+    sortTable(personRows);
+
+    function sortTable(rows) {
+        getSortedNames(rows);
+
+        for (let i = 0; i < names.length; i++) {
+            for (let person = 0; person < rows.length; person++) {
+                if (rows[person].querySelector('td').innerText.trim() === names[i].trim()) {
+                    tbody.append(rows[person]);
+                }
+            }
+        }
+
+        function getSortedNames(rows) {
+            for (let person = 0; person < rows.length; person++) {
+                names.push(rows[person].querySelector('td').innerText);
+            }
+            names = names.sort();
+        }
+
+    }
+</script>
+
+</body>
+</html>
