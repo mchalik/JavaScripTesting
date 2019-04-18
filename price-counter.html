@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+
+
+<script>
+
+    const TAX_RATE = 0.13;
+    const PHONE_PRICE = 21000;
+    const ACCESORY_PRICE = 1500;
+    const SPENDING_THESHOLD = 50000;
+    const OUTPUT = document.getElementById('container');
+
+    let bankBalance = 60000;
+    let finalCheque = 0;
+
+    function priceToNumber(price) {
+        return price.toFixed(2);
+    }
+
+    function priceOutput(price) {
+        return `${price}$`;
+    }
+
+    function calculateFinalPrice(priceInit) {
+        return priceInit + (priceInit * TAX_RATE);
+    }
+
+
+    while (finalCheque < bankBalance) {
+        finalCheque += PHONE_PRICE;
+
+        if (finalCheque < SPENDING_THESHOLD) {
+            finalCheque += ACCESORY_PRICE;
+        }
+    }
+
+    finalCheque = calculateFinalPrice(finalCheque);
+
+    if (finalCheque > bankBalance) {
+        OUTPUT.innerText = 'You can\'t afford it';
+    } else {
+        OUTPUT.innerText = priceOutput(priceToNumber(finalCheque));
+    }
+
+</script>
+</body>
+</html>
