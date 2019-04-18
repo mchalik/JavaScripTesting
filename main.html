@@ -14,12 +14,14 @@
         let data;
         setTimeout( function(){
             data = prompt('Введите слово');
+            if (!data) break;
+            // setTimeout( function(){
+                li = document.createElement('li');
+                li.textContent = data;
+                ul.append(li);
+            // }, 0 );
         }, 0 );
 
-        if (!data) break;
-        li = document.createElement('li');
-        li.textContent = data;
-        ul.append(li);
     }
 </script>
 
