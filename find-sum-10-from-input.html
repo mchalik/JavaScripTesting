@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<script>
+
+    const container = document.getElementById('container');
+    function getSumTen(arr) {
+        try {
+            if (arr.constructor !== Array) throw 'Not an arrow';
+        }
+        catch (e) {
+            container.innerText = e;
+        }
+        let result = [];
+        for (let i of arr) {
+            if (arr[i] === 10) {
+                result.push(arr[i]);
+            }
+        }
+
+        function checkArr(arr) {
+            let sum = 0;
+            for (let i of arr) {
+                if (arr[i] === 10) {
+                    result.push(arr[i]);
+                }
+            }
+        }
+    }
+
+    for (let i = 0; i < ; i++) {
+        
+    }
+
+
+</script>
+
+</body>
+</html>
