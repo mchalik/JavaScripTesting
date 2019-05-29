@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // function Ticker() {
+    //     this._i = 0
+    // }
+    // Ticker.prototype.tick = function() {
+    //     console.log(this._i++);
+    // };
+    // var ticker = new Ticker();
+    // ticker.tick();
+
+    // function Circle() {
+    //     this.r = 1000;
+    // }
+    // Circle.prototype.radius = function() {
+    //     return this.r;
+    // };
+    // Circle.prototype.diameter = function() {
+    //     return this.r * 2;
+    // };
+    // Circle.prototype.circumference = function() {
+    //     return 2 * Math.PI * this.r;
+    // };
+    // Circle.prototype.area = function() {
+    //     debugger;
+    //     return Math.PI * this.r * this.r;
+    // };
+    // var c1 = new Circle(3);
+    // console.log(c1.area());          // 28.274333882308138
+    // console.log(c1.circumference()); // 18.84955592153876
+    //
+    // var c2 = new Circle(5);
+    // console.log(c2.area());          // 78.53981633974483
+    // console.log(c2.circumference()); // 31.41592653589793
+
+
+    var user = {
+        name: 'Василий',
+
+        sayHi: function() {
+            debugger;
+            alert( this.name );
+        }
+    };
+    setInterval(user.sayHi, 2000);
+</script>
+</body>
+</html>
